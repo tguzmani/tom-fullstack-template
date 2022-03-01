@@ -2,7 +2,6 @@ const express = require('express')
 const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
-const connection = require('./database')
 const { monitor, csv } = require('./logger')
 
 require('dotenv').config()
@@ -36,14 +35,3 @@ const port = process.env.PORT || 5000
 app.listen(port, '0.0.0.0', () => {
   console.log(`Server running on port ${port}`)
 })
-
-// function keepMySQLAlive() {
-//   connection.query('select 1', [], (error, _) => {
-//     if (error) throw error
-//     console.log('...')
-//   })
-// }
-
-// const ONE_SECOND = 1000
-
-// setInterval(keepMySQLAlive, ONE_SECOND * 10)
